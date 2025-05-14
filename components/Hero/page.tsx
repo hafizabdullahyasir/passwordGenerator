@@ -106,7 +106,7 @@ export default function Hero() {
   const [charAllowed, setCharAllowed] = useState(false);
   const [password, setPassword] = useState("");
 
-  const passwordRef = useRef(null);
+  const passwordRef = useRef<HTMLInputElement>(null);
 
   const copypassword = useCallback(() => {
     passwordRef.current?.select();
@@ -119,7 +119,7 @@ export default function Hero() {
     if (numberAllowed) str += "0123456789";
     if (charAllowed) str += "!@#$%^&*_+={}[]";
     for (let i = 1; i <= length; i++) {
-      let char = Math.floor(Math.random() * str.length);
+      const char = Math.floor(Math.random() * str.length);
       pass += str.charAt(char);
     }
     setPassword(pass);
